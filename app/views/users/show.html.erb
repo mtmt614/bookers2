@@ -1,6 +1,7 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <p><%= link_to "User info", @user %></p>
 </div>
 
 <% @books.each do |book| %>
@@ -10,6 +11,6 @@
   <p>投稿ユーザー画像：<%= image_tag 'no_image.jpg' %></p>
   <p>Title：<%= book.title %></p>
   <p>Opinion：<%= book.body %></p>
-  <p>ユーザーネーム：<%= book.user.name %></p>
+  <p>name：<%= book.user.name %></p>
 </div>
 <% end %>
