@@ -1,16 +1,31 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <p><%= link_to "User info", @user %></p>
+  <% if @user == current_user %>
+  <p><%= link_to "User info", edit_user_path(@user) %></p>
+  <% end %>
 </div>
 
-<% @books.each do |book| %>
+<h1>New book</h1>
+  <%= form_with model: @book do |f| %>
+    <h4>Title</h4>
+      <%= f.text_field :title %>
+    <h4>Opinion</h4>
+      <%= f.text_area :body %>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+
+<h1>Book detail</h1>
+  <% @books.each do |book| %>
 <div>
   <%= link_to book_path(book.id) do %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag 'no_image.jpg' %></p>
-  <p>Title：<%= book.title %></p>
-  <p>Opinion：<%= book.body %></p>
-  <p>name：<%= book.user.name %></p>
+  <p><%= image_tag 'no_image.jpg' %></p>
+  <p><%= book.title %></p>
+  <p><%= book.body %></p>
+  <p><%= book.user.name %></p>
+  <%= link_to "Edit", edit_book_path(book.id) %>
+  <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？"%>
 </div>
 <% end %>
+
