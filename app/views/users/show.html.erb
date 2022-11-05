@@ -21,11 +21,9 @@
   <%= link_to book_path(book.id) do %>
   <% end %>
   <p><%= image_tag 'no_image.jpg' %></p>
-  <p><%= book.title %></p>
+  <p><%= link_to book.title, book_path(book.id) %></p>
   <p><%= book.body %></p>
   <p><%= book.user.name %></p>
-  <%= link_to "Edit", edit_book_path(book.id) %>
-  <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？"%>
 </div>
 <% end %>
 
