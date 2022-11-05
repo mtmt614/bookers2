@@ -1,21 +1,4 @@
 <div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <% if @user == current_user %>
-  <p><%= link_to "User info", edit_user_path(@user) %></p>
-  <% end %>
-</div>
-
-<h1>New book</h1>
-  <%= form_with model: @book do |f| %>
-    <h4>Title</h4>
-      <%= f.text_field :title %>
-    <h4>Opinion</h4>
-      <%= f.text_area :body %>
-    <%= f.submit 'Create Book' %>
-  <% end %>
-  
-<div>
   <p>投稿ユーザー画像：<%= image_tag 'no_image.jpg' %></p>
   <P>Title：<%= @book.title %></p>
   <p>Opinion：<%= @book.body %></p>
