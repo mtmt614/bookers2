@@ -4,6 +4,9 @@
   <div class='container px-5 px-sm-0'>
     <div class='row'>
       <div class='col-md-3'>
+        <div>
+          <%= flash[:notice] %>
+        </div>
         <h2>User info</h2>
         <%= image_tag @user.get_profile_image(100,100) %>
           <table class="table ">
@@ -23,7 +26,7 @@
             </tbody>
           </table>
           <% if @user == current_user %>
-            <div class="row">
+            <div class='row'>
               <%= link_to edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block" do %> <i class="fas fa-user-cog"></i>
                 <% end %>
                   <% end %>
@@ -38,25 +41,36 @@
                     <% end %>
       </div>
       <main>
-        <h1>Book detail</h1>
-        <% @books.each do |book| %>
-          <div>
-            <%= link_to book_path(book.id) do %>
-              <% end %>
-                <p>
-                  <%= image_tag 'no_image.jpg' %>
-                </p>
-                <p>
-                  <%= link_to book.title, book_path(book.id) %>
-                </p>
-                <p>
-                  <%= book.body %>
-                </p>
-                <p>
-                  <%= book.user.name %>
-                </p>
-          </div>
-          <% end %>
+        <div class='col-md-8 offset-md-1'>
+          <h1>Book detail</h1>
+          <% @books.each do |book| %>
+            <div>
+              <%= link_to book_path(book.id) do %>
+                <% end %>
+                  <p>
+                    <%= image_tag 'no_image.jpg' %>
+                  </p>
+                  <p>
+                    <%= link_to book.title, book_path(book.id) %>
+                  </p>
+                  <p>
+                    <%= book.body %>
+                  </p>
+                  <p>
+                    <%= book.user.name %>
+                  </p>
+        </div>
+            </div>
+            <% end %>
+            <footer>
+              <div class='container mt-5'>
+                <div class='row'>
+                  <div class='mx-auto'>
+                    <p>CopyRight Infratop.inc</p>
+                  </div>
+                </div>
+              </div>
+            </footer>
       </main>
     </div>
   </div>
