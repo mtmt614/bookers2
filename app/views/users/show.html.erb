@@ -9,7 +9,7 @@
         </div>
         <h2>User info</h2>
         <%= image_tag @user.get_profile_image(100,100) %>
-          <table class="table ">
+          <table class="table">
             <tbody>
               <tr>
                 <th>name</th>
@@ -41,37 +41,37 @@
                     <% end %>
       </div>
       <main>
-        <div class='col-md-8'>
+        <div class='col-md-8 offset-md-1'>
           <h1>Book detail</h1>
           <% @books.each do |book| %>
-            <div>
-              <%= link_to book_path(book.id) do %>
-                <% end %>
-                  <p>
+            <table class= "table">
+              <tbody>
+                <tr>
+                  <td>
                     <%= image_tag 'no_image.jpg' %>
-                  </p>
-                  <p>
+                  </td>
+                  <td>
                     <%= link_to book.title, book_path(book.id) %>
-                  </p>
-                  <p>
+                  </td>
+                  <td>
                     <%= book.body %>
-                  </p>
-                  <p>
-                    <%= book.user.name %>
-                  </p>
-        </div>
+                  </td>
+                  <td>
+                    <div class="actions">
+                      <input type="submit" name="commit" value="Edit" class="btn btn-sm btn-primary" data-disable-with="Edit">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><%= @user.name %></td>
+                </tr>
+              </tbody>
+            </table>
             </div>
             <% end %>
-            <footer>
-              <div class='container mt-5'>
-                <div class='row'>
-                  <div class='mx-auto'>
-                    <p>CopyRight Infratop.inc</p>
-                  </div>
-                </div>
-              </div>
-            </footer>
       </main>
+      </div>
+    </div>
     </div>
   </div>
 </body>

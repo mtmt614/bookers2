@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  
+  def index
+    flash[:notice] = "Welcome! You have signed up successfully."
+  end
 
   def update
     @user = User.find(params[:id])
