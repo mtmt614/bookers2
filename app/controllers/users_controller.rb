@@ -11,14 +11,15 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user = User.new
+    @user = current_user
+    @book = Book.find_by(params[:id])
     flash[:notice] = "Welcome! You have signed up successfully."
   end
 
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    flash[:notice] = "You have update user successfully."
+    flash[:notice] = "You have updated user successfully."
     redirect_to user_path(@user.id)
   end
 

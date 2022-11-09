@@ -2,10 +2,11 @@
     <p id= "notice"></p>
   <div class='container'>
     <div class='row'>
-      
-      <%= render 'userinfo', book: @book, user:@user %>
-      
+
+      <%= render 'userinfo', book: @book, user: @user %>
+
         <div class='col-md-8 offset-md-1'>
+
           <h2>Book detail</h2>
             <table class= "table">
               <tbody>
@@ -13,7 +14,7 @@
                   <td>
                     <%= image_tag 'no_image.jpg' %>
                     <br>
-                    <%= link_to @user.name %>
+                    <%= link_to @user.name, book_path(@user) %>
                   </td>
                   <td>
                     <%= link_to @book.title, book_path(@book) %>
