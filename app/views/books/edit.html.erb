@@ -19,11 +19,11 @@
 <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
   <div class="form-group">
     <label for="book_title">Title</label>
-      <input class="form-control book_title" type="text" name="book[title]" id="book_title">
+   <%= f.text_field :title, class:'form-control book_title' %>
   </div>
   <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-      <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
+    <label for="book_body">Opinion</label>
+    <%= f.text_area :body, class:'form-control book_body' %>
   </div>
   <div class="form-group">
     <%= f.submit 'Update Book',class:"btn btn-success" %>
