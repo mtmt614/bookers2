@@ -20,7 +20,7 @@
           <tbody>
             <tr>
               <td>
-                <%= link_to image_tag(book.user.get_profile_image(80,80)), book_path(book.id) %>
+                <%= link_to image_tag(book.user.get_profile_image(80,80)), user_path(book.user) %>
               </td>
               <td>
                 <%= link_to book.title, book_path(book.id) %>
